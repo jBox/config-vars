@@ -1,5 +1,5 @@
 {
-  "name": "@jx/config-vars",
+  "name": "config-vars",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
