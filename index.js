@@ -16,21 +16,19 @@ const extendVars = (configurations) => {
     }
 };
 
-const configurationCenter = (init) => {
-    let configurations = {};
-    if (isFunction(init)) {
-        configurations = init(getenv);
-    } else if (isObject(init)) {
-        configurations = init;
-    }
-
-    extendVars(configurations);
-
-    return {
-        get env() {
-            return { ...vars };
+module.exports = {
+    setup(init) {
+        let configurations = {};
+        if (isFunction(init)) {
+            configurations = init(getenv);
+        } else if (isObject(init)) {
+            configurations = init;
         }
+
+        extendVars(configurations);
+        return this;
+    },
+    get env() {
+        return { ...vars };
     }
 };
-
-module.exports = configurationCenter;

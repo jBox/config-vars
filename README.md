@@ -1,7 +1,7 @@
 ``` js
 const cv = require("@jx/config-vars");
 
-cv((getenv /* getenv */) => ({
+cv.setup((getenv /* getenv */) => ({
     port: getenv("PORT")
 }));
 
